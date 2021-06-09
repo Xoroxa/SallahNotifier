@@ -1,0 +1,46 @@
+html {
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 50px;
+    /*color: #FF0266;*/
+    color: #04879c;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+:root {
+    --primary-color: #fff;
+    --background-color: #e5e5e5;
+    --text-color: #2d2d2d;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body * {
+    margin: 0;
+    padding: 0;
+}
+
+div.box {
+    width: 50px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #455363;
+        --background-color: #1f2935;
+        --text-color: #fff;
+    }
+}

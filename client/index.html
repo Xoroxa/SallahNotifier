@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>SallahNotifier</title>
+
+		<!--  Imports  -->
+		<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+		<script src="../render.js"></script>
+	</head>
+	<body>
+		<br>
+		<h1>Hey 👋</h1>
+<!--		<a href="miniview.html" id="miniview-button"><img src="../assets/eye.png" height="512" width="512"></a>-->
+
+		<script>
+			const { ipcRenderer } = require('electron');
+			const customTitlebar = require('custom-electron-titlebar');
+
+			const miniviewButton = document.getElementById('miniview-button');
+			miniviewButton.addEventListener('click', function () {
+				ipcRenderer.send('miniview');
+			})
+
+			let MyTitleBar = new customTitlebar.Titlebar({
+				backgroundColor: customTitlebar.Color.fromHex('#03a9f4'),
+				shadow: true,
+				menu: false,
+				titleHorizontalAlignment: "left",
+			});
+
+			MyTitleBar.updateTitle('Unify');
+		</script>
+
+<!--		<div class="box">-->
+<!--			<p>yoooo</p>-->
+<!--		</div>-->
+	</body>
+</html>

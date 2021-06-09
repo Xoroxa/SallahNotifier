@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>SallahNotifier</title>
+
+        <!--  Imports  -->
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+    <body>
+    <br>
+    <img src="../assets/eye.png" height="250" width="250">
+
+    <script>
+        const { ipcRenderer } = require('electron');
+        const customTitlebar = require('custom-electron-titlebar');
+
+        let MyTitleBar = new customTitlebar.Titlebar({
+            backgroundColor: customTitlebar.Color.fromHex('#03a9f4'),
+            shadow: true,
+            menu: false,
+            titleHorizontalAlignment: "left",
+        });
+
+        MyTitleBar.updateTitle('SallahNotifier');
+    </script>
+    </body>
+</html>

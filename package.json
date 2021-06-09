@@ -1,0 +1,83 @@
+{
+  "name": "sallahnotifier",
+  "version": "1.0.0",
+  "description": "Configurable notifications for prayer times",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "keywords": [],
+  "author": "Xoroxa",
+  "license": "ISC",
+  "dependencies": {
+    "asar": "^3.0.3",
+    "custom-electron-titlebar": "^3.2.6",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.0.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "^11.4.4",
+    "electron-builder": "^22.10.5",
+    "electron-packager": "^15.2.0",
+    "electron-webpack": "^2.8.2",
+    "webpack": "^5.36.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "SallahNotifier"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "options": {
+              "maintainer": "Xoroxa"
+            }
+          }
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "build": {
+    "appId": "your.id",
+    "icon": "path/to/icons/dir",
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "win": {
+      "target": "portable"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "postinstall": "electron-builder install-app-deps"
+}
